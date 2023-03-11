@@ -1,26 +1,16 @@
-﻿using Estudos.Delegates;
-using Estudos.Util;
+﻿using Estudos.Util;
 using Spire.Xls;
-using static Estudos.Delegates.Message;
 
 public class Program
 {
     private static void Main(string[] args)
     {
-        string RetornaValor()
-        {
-            return "Teste 1";
-        }
+        string caminho = @"D:\Documentos Importantes\";
 
-        var mensagem = ObterMensagem(RetornaValor);
-        Console.WriteLine(mensagem);
+        Workbook wb = new();
 
-        //string caminho = @"D:\Documentos Importantes\";
-
-        //Workbook wb = new();
-
-        //ExcelReader excelReader = new(caminho, wb);
-        //excelReader.OpenFile("Formulário Logs.xlsx");
-        //excelReader.WriteFile("output.xlsb", ExcelVersion.Xlsb2010);
+        ExcelReader excelReader = new(caminho, wb);
+        excelReader.OpenFile("Formulário Logs.xlsx");
+        excelReader.WriteFile("output.xlsb", ExcelVersion.Xlsb2010);
     }
 }
