@@ -5,11 +5,13 @@ public class Program
 {
     private static void Main(string[] args)
     {
-        //var lista = ReadFile.Read();
-        //ReadFile.Write(lista);
 
-        Workbook wb = new Workbook();
-        wb.LoadFromFile(@"D:\Meus Projetos\Estudos\Estudos gerais\Estudos\Excel\Formulário Logs.xlsx");
-        wb.SaveToFile(@"D:\Meus Projetos\Estudos\Estudos gerais\Estudos\Excel\output.xlsb", ExcelVersion.Xlsb2010);
+        string caminho = @"D:\Documentos Importantes\";
+
+        Workbook wb = new();
+
+        ExcelReader excelReader = new(caminho, wb);
+        excelReader.OpenFile("Formulário Logs.xlsx");
+        excelReader.WriteFile("output.xlsb", ExcelVersion.Xlsb2010);
     }
 }
